@@ -2,6 +2,9 @@ package Test::BDD::Infrastructure::Config;
 
 use MooseX::Singleton;
 
+# VERSION
+# ABSTRACT: configuration variables support for Test::BDD::Infrastructure
+
 use Test::BDD::Infrastructure::Config::YAML;
 
 has '_configs' => (

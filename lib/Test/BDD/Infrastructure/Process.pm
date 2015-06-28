@@ -3,7 +3,7 @@ package Test::BDD::Infrastructure::Process;
 use strict;
 use warnings;
 
-# VERISON
+# VERSION
 # ABSTRACT: cucumber step definitions for checking processes
  
 use Test::More;

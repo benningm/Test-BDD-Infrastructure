@@ -20,6 +20,9 @@ use File::Slurp;
 
 This checks could be used to test configuration variables.
 
+It could be used with a configuration backend like Augeas
+to check values in configuration files.
+
 =head1 Synopsis
 
 Load/register configurations in your step files:

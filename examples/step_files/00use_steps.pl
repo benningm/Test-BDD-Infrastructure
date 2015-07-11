@@ -13,4 +13,5 @@ use Test::BDD::Infrastructure::Process;
 use Test::BDD::Infrastructure::File;
 use Test::BDD::Infrastructure::HTTP;
 use Test::BDD::Infrastructure::Compare;
+use Test::BDD::Infrastructure::DNS;
 

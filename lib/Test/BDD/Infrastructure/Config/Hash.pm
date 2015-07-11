@@ -41,6 +41,7 @@ sub _get_hash_value {
 
 sub _parse_path {
 	my ( $self, $path ) = @_;
+	$path =~ s/^\///;
 	return( split('/', $path) );
 }
 

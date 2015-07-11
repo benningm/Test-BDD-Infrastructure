@@ -16,6 +16,29 @@ use Test::BDD::Infrastructure::Compare;
 This is a collection of generic step definitions for infrastructure testing
 with Test::BDD::Cucumber.
 
+=head1 Overview
+
+=over
+
+=item L<Test::BDD::Infrastructure::File>
+
+Checks for testing existence, attributes, size, mode
+and content of files and directories.
+
+=item L<Test::BDD::Infrastructure::Process>
+
+Checks for testing the process table.
+
+=item L<Test::BDD::Infrastructure::HTTP>
+
+Checks for testing a HTTP server.
+
+=item L<Test::BDD::Infrastructure::Compare>
+
+Checks for testing configuration variables.
+
+=back
+
 =head1 Example
 
 First include the steps from a step_file:

@@ -234,6 +234,38 @@ sub _parse_var {
 	return( $scope, $path );
 }
 
+=head1 Configuration variables
+
+A backend for retrieving configuration variables is
+implemented in L<Test::BDD::Infrastrucuture::Config>.
+
+The following short-cut methods could be used to implement configuration
+variables in step file definitions.
+
+The syntax for variables is $<path> or $<scope>:<path>
+
+If the scope is omitted the default 'c' will be used.
+
+=head2 Example usage
+
+If the step file definition is:
+
+  Then qr/the value (\S+) must be bla/, sub {
+    my $value = lookup_config( $1 );
+    ok( is_bla($value), 'value must be bla' );
+  }
+
+then it could be used with variables:
+
+  Then the value $bla must be bla
+
+=head2 lookup_config( $str )
+
+Tries to lookup the configuration value for $str if $str starts with "$"
+otherwise the string is returned as-is.
+
+=cut
+
 sub lookup_config {
 	my $str = shift;
 
@@ -245,6 +277,12 @@ sub lookup_config {
 	return $str;
 }
 
+=head2 lookup_config_node( $str )
+
+Tries to lookup the configuration node for $str otherwise undef is returned.
+
+=cut
+
 sub lookup_config_node {
 	my $str = shift;
 
@@ -253,7 +291,7 @@ sub lookup_config_node {
 		return $c->get_node( $scope, $path );
 	}
 
-	return $str;
+	return;
 }
 
 1;

@@ -137,6 +137,8 @@ Returns the size in bytes.
 =cut
 
 our $UNITS = {
+	'%' => 0.01,
+	percent => 0.01,
 	byte => 1,
 	b => 1,
 	kilobyte => 1024,

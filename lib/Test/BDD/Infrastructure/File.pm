@@ -180,6 +180,8 @@ Then qr/the file ([acm]time) must be $CMP_OPERATOR_RE (\d+) (\S+)/, sub {
 =head2 File content checks
 
   Then the file must contain <compare> <count> lines
+  Then the files content must match <regex>
+  Then the files content must not match <regex>
 
 =cut
 
@@ -192,9 +194,22 @@ Then qr/the file must contain $CMP_OPERATOR_RE (\d+) lines/, sub {
 	cmp_ok( scalar(@content), $op, $count, "the file $path must contain $op $count lines");
 };
 
+Then qr/the files? content must (not match|match) (.*)$/, sub {
+	my $path = S->{'path'};
+	my $regex = $2;
+	my $content = read_file( $path );
+	if( $1 eq 'not match' ) {
+		unlike( $content, qr/$regex/, "files content must not match $regex");
+	} else {
+		like( $content, qr/$regex/, "files content must match $regex");
+	}
+};
+
 =head2 Directory content checks
 
   Then the directory must contain <compare> <count> files
+  Then the directory must contain a file like <regex>
+  Then the directory must contain no file like <regex>
 
 =cut
 
@@ -205,6 +220,23 @@ Then qr/the directory must contain $CMP_OPERATOR_RE (\d+) files/, sub {
 	my $count = $2;
 	my @content = read_dir( $path );
 	cmp_ok( scalar(@content), $op, $count, "the directory $path must contain $op $count files");
+};
+Then qr/the directory must contain (a|no) file like (.*)$/, sub {
+	my $path = S->{'path'};
+	my $regex = $2;
+	my @files = read_dir( $path );
+	my $matched = 0;
+	foreach my $file ( @files ) {
+		if( $file =~ /$regex/ ) {
+			$matched++;
+			diag('file matched: '.$file);
+		}
+	}
+	if( $1 eq 'no' ) {
+		cmp_ok($matched, '==', 0, "no file in the directory must match $regex");	
+	} else {
+		cmp_ok($matched, '>', 0, "a file in the directory must match $regex");	
+	}
 };
 
 1;

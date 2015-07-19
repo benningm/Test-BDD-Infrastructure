@@ -24,8 +24,9 @@ Load a configuration in step_files/00use_steps.pl:
 Or register additional configuration backends:
 
   use Test::BDD::Infrastructure::Config::Augeas;
+  use Test::BDD::Infrastructure::Config::Facter;
   $c->register_config(
-    'a' => Test::BDD::Infrastructure::Config::Augeas->new,
+    'a' => Test::BDD::Infrastructure::Config::Facter->new,
   );
 
 
@@ -122,7 +123,8 @@ sub get {
 
 =head1 See also
 
-L<Test::BDD::Infrastructure::Config::YAML>, L<Test::BDD::Infrastructure::Config::Augeas>
+L<Test::BDD::Infrastructure::Config::YAML>, L<Test::BDD::Infrastructure::Config::Augeas>,
+L<Test::BDD::Infrastructure::Config::Facter>
 
 =cut
 

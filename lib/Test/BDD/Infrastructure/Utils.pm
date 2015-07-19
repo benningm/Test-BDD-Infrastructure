@@ -122,15 +122,45 @@ Returns the size in bytes.
 
 =over
 
+=item percent, %
+
+1/100
+
 =item byte, b
+
+1 byte
 
 =item kilobyte, kb
 
+1000 byte
+
 =item megabyte, mb
+
+1000000 byte
 
 =item gigabyte, gb
 
+1000000000 byte
+
 =item terrabyte, tb
+
+1000000000000 byte
+
+=item kibibyte, kib
+
+1024 byte
+
+=item mebibyte, mib
+
+1048576 byte
+
+=item gibibyte, gib
+
+1073741824 byte
+
+=item tebibyte, tb
+
+1099511627776 byte
 
 =back
 
@@ -139,16 +169,27 @@ Returns the size in bytes.
 our $UNITS = {
 	'%' => 0.01,
 	percent => 0.01,
+
 	byte => 1,
 	b => 1,
-	kilobyte => 1024,
-	kb => 1024,
-	megabyte => 1024*1024,
-	mb => 1024*1024,
-	gigabyte => 1024*1024*1024,
-	gb => 1024*1024*1024,
-	terrabyte => 1024*1024*1024*1024,
-	tb => 1024*1024*1024*1024,
+
+	kilobyte => 1000,
+	kb => 1000,
+	megabyte => 1000000,
+	mb => 1000000,
+	gigabyte => 1000000000,
+	gb => 1000000000,
+	terrabyte => 1000000000000,
+	tb => 1000000000000,
+
+	kibibyte => 1024,
+	kib => 1024,
+	mebibyte => 1024*1024,
+	mib => 1024*1024,
+	gibibyte => 1024*1024*1024,
+	gib => 1024*1024*1024,
+	tebibyte => 1024*1024*1024*1024,
+	tib => 1024*1024*1024*1024,
 };
 
 sub convert_unit {

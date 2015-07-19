@@ -9,6 +9,8 @@ use Test::BDD::Infrastructure::HTTP;
 use Test::BDD::Infrastructure::Compare;
 use Test::BDD::Infrastructure::DNS;
 use Test::BDD::Infrastructure::Filesystem;
+use Test::BDD::Infrastructure::Swap;
+use Test::BDD::Infrastructure::Socket;
 
 # VERSION
 # ABSTRACT: a collection of step file definitions for Test Driven Infrastructure
@@ -55,6 +57,14 @@ Checks for testing configuration variables.
 =item L<Test::BDD::Infrastructure::Filesystem>
 
 Checks for testing file system usage.
+
+=item L<Test::BDD::Infrastructure::Swap>
+
+Check for testing swap space usage.
+
+=item L<Test::BDD::Infrastructure::Socket>
+
+Checks for tcp/udp/unix-socket based checks.
 
 =back
 

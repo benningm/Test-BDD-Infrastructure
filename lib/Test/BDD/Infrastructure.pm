@@ -11,6 +11,7 @@ use Test::BDD::Infrastructure::DNS;
 use Test::BDD::Infrastructure::Filesystem;
 use Test::BDD::Infrastructure::Swap;
 use Test::BDD::Infrastructure::Socket;
+use Test::BDD::Infrastructure::Exec;
 
 # VERSION
 # ABSTRACT: a collection of step file definitions for Test Driven Infrastructure
@@ -65,6 +66,10 @@ Check for testing swap space usage.
 =item L<Test::BDD::Infrastructure::Socket>
 
 Checks for tcp/udp/unix-socket based checks.
+
+=item L<Test::BDD::Infrastructure::Exec>
+
+Checks for executing commands and checking their output.
 
 =back
 

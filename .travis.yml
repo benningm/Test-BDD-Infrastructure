@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 language: perl
 perl:
    - 'blead'
@@ -17,6 +17,7 @@ matrix:
 before_install:
    - git config --global user.name "TravisCI"
    - git config --global user.email $HOSTNAME":not-for-mail@travis-ci.org"
+   - sudo apt-get update
    - sudo apt-get -y install libaugeas-dev
 install:
    - cpanm --quiet --notest --skip-satisfied Dist::Zilla

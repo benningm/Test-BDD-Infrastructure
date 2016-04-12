@@ -1,5 +1,6 @@
 package Test::BDD::Infrastructure::Config;
 
+use strict;
 use MooseX::Singleton;
 
 # VERSION

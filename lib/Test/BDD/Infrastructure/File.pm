@@ -135,7 +135,7 @@ Then qr/the file type must be character device/, sub {
 Then qr/the file mode must be (\d+)/, sub {
 	my $mode = $1;
 	my $path = S->{'path'};
-	my $file_mode = sprintf("%04o", (stat($path))[2] & 07777 );
+	my $file_mode = sprintf("%04o", (stat($path))[2] & oct(7777) );
 	cmp_ok( $file_mode, 'eq', $mode, "file mode of $path must be $mode");
 };
 Then qr/the file must be owned by user (\S+)/, sub {

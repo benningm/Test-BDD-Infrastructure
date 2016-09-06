@@ -12,6 +12,8 @@ use Test::BDD::Infrastructure::Filesystem;
 use Test::BDD::Infrastructure::Swap;
 use Test::BDD::Infrastructure::Socket;
 use Test::BDD::Infrastructure::Exec;
+use Test::BDD::Infrastructure::Logfile;
+use Test::BDD::Infrastructure::SystemUser;
 
 # VERSION
 # ABSTRACT: a collection of step file definitions for Test Driven Infrastructure
@@ -70,6 +72,14 @@ Checks for tcp/udp/unix-socket based checks.
 =item L<Test::BDD::Infrastructure::Exec>
 
 Checks for executing commands and checking their output.
+
+=item L<Test::BDD::Infrastructure::Logfile>
+
+Checks for watching log files.
+
+=item L<Test::BDD::Infrastructure::SystemUser>
+
+Checks for system user/groups.
 
 =back
 
